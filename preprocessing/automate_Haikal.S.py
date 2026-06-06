@@ -106,6 +106,9 @@ def preprocess(filepath, output_dir):
     return X_train, X_test, y_train, y_test, scaler
 
 if __name__ == "__main__":
-    filepath = "../diabetes_raw/diabetes_binary_health_indicators_BRFSS2015.csv"
-    output_dir = "../preprocessing"
+    import os
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    filepath = os.path.join(base_dir, "diabetes_raw",
+                "diabetes_binary_health_indicators_BRFSS2015.csv")
+    output_dir = os.path.join(base_dir, "preprocessing")
     preprocess(filepath, output_dir)
